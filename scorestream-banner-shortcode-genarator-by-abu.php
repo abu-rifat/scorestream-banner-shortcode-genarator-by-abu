@@ -20,5 +20,7 @@ add_shortcode( 'abu-banner-code' , 'abu_banner_code' );
 function abu_banner_code($atts){
     $term = get_queried_object();
 	$banner = get_field('abu_code_id', $term);
-	echo '<iframe src="https://scorestream.com/widgets/scoreboards/horz?userWidgetId='.$banner.'" style="padding:0px;border:0px;width:100%;max-width:100%;height:100%;max-height:100%;" title="scoreboardhome" scrolling="no" frameborder="0"></iframe>';
+	if(!empty($banner)){
+		echo '<iframe src="https://scorestream.com/widgets/scoreboards/horz?userWidgetId='.$banner.'" style="padding:0px;border:0px;width:100%;max-width:100%;height:100%;max-height:100%;" title="scoreboardhome" scrolling="no" frameborder="0"></iframe>';
+	}
 }
